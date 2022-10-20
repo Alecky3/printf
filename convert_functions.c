@@ -11,7 +11,7 @@ int print_c(va_list args)
 	int c;
 
 	c = va_arg(args, int);
-	return (write(STDFILE_NO, &c, 1));
+	return (write(STDOUT_FILENO, &c, 1));
 }
 /**
  * print_s - prints a string
@@ -43,7 +43,7 @@ int print_d(va_list args)
 		if (n < 0)
 		{
 			absolute = (n * -1);
-			count += _putchar('-');
+			count += write(STDOUT_FILENO, "-", 1);
 		}
 		else
 			absolute = n;
@@ -57,7 +57,9 @@ int print_d(va_list args)
 	}
 	while (countnum >= 1)
 	{
-		count += _putchar(((absolute / countnum) % 10) + '0');
+		char c = ((absolute / countnum) % 10) + '0';
+
+		count += write(STDOUT_FILENO, &c, 1);
 		countnum /= 10;
 	}
 	return (count);
