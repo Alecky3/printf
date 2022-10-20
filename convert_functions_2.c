@@ -24,3 +24,13 @@ int print_b(va_list args)
 	count = (write(STDOUT_FILENO, &c, 1));
 	return (count);
 }
+/**
+ * print_o - function to convert to unsigned integer to octal
+ * @args: character argurmen to print
+ * Return: number of characters printed
+*/
+
+int print_o(va_list args)
+{
+
+}
