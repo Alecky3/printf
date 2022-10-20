@@ -13,14 +13,16 @@ int select_function(char c, va_list args)
 	{
 		case 'c':
 			return (print_c(args));
-		case 'd':
-			return (print_d(args));
 		case 's':
 			return (print_s(args));
+		case 'd':
+			return (print_d(args));
 		case 'i':
 			return (print_i(args));
 		case 'u':
 			return (print_u(args));
+		case 'b':
+			return (print_b(args));
 		default:
 			return (0);
 	}
