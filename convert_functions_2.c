@@ -3,7 +3,8 @@
 #include <stdarg.h>
 /**
  * format_b - function to convert to unsigned integer to binary
- * @args 
+ * @args: character argurmen to print 
+ * Return: number of characters printed
  */
 int print_b(va_list args)
 {
@@ -16,14 +17,13 @@ int print_b(va_list args)
     int a[10];
 
     n = va_arg(args, int);
-    printf("n: %i", n);
+    
     for (i = 0; n > 0; i++)
     {
-        printf("n:: %i",n);
         a[i] = n % 2;
         n = n / 2;
     }
 
-    //count = (write(STDOUT_FILENO, &c, 1));
+    count = (write(STDOUT_FILENO, &c, 1));
     return (count);
 }
