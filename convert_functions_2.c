@@ -44,3 +44,13 @@ int print_x(va_list args)
 {
 
 }
+/**
+ * print_X - function to convert unsigned integer to Uppercase hexadecimal
+ * @args: character argurment to print
+ * Return: number of characters printed
+*/
+
+int print_X(va_list args)
+{
+
+}

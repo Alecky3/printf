@@ -16,5 +16,6 @@ int print_u(va_list args);
 int print_b(va_list args);
 int print_o(va_list args);
 int print_x(va_list args);
+int print_X(va_list args);
 
 #endif
