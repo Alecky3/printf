@@ -31,8 +31,11 @@ int _printf(const char *format, ...)
 				else
 				{
 					chars_count = select_function(format[i + 1], args);
-					count += chars_count;
-					i += 2;
+					if (chars_count)
+					{
+						count += chars_count;
+						i += 2;
+					}
 				}
 			}
 			count += write(STDOUT_FILENO, &format[i], 1);
