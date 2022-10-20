@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 /**
- * format_b - function to convert to unsigned integer to binary
- * @args: character argurmen to print
+ * format_b - function to convert unsigned integer to binary
+ * @args: character argurment to print
  * Return: number of characters printed
  */
 int print_b(va_list args)
@@ -25,12 +25,22 @@ int print_b(va_list args)
 	return (count);
 }
 /**
- * print_o - function to convert to unsigned integer to octal
- * @args: character argurmen to print
+ * print_o - function to convert unsigned integer to octal
+ * @args: character argurment to print
  * Return: number of characters printed
 */
 
 int print_o(va_list args)
+{
+
+}
+/**
+ * print_x - function to convert unsigned integer to lowercase hexadecimal
+ * @args: character argurment to print
+ * Return: number of characters printed
+*/
+
+int print_x(va_list args)
 {
 
 }

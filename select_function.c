@@ -25,8 +25,10 @@ int select_function(char c, va_list args)
 			return (print_b(args));
 		case 'o':
 			return (print_o(args));
+		case 'x':
+			return (print_x(args));
 		default:
-			return (0);		
+			return (0);
 	}
 	return (0);
 }
