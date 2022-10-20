@@ -14,9 +14,7 @@ int _printf(const char *format, ...)
 	{
 		int count = 0, i;
 		va_list args;
-		char *buffer;
 
-		buffer = malloc(INT_MAX);
 		va_start(args, format);
 		i = 0;
 		if (format[0] == '%' && format[1] == '\0')
@@ -26,39 +24,13 @@ int _printf(const char *format, ...)
 			if (format[i] == '%')
 			{
 				if (format[i + 1] == '%')
-				{
-					count += write(STDOUT_FILENO, &format[i], 1);
-					i += 2;
-				}
+					count += write(STDOUT_FILENO, &format[i + 1], 1);
 				else
-				{
-					switch (format[i + 1])
-					{
-						case 'd':
-							int n = va_arg(args, int);
-
-							sprintf(buffer, "%d", n);
-							break;
-						case 'c':
-							n = va_arg(args, int);
-							sprintf(buffer, "%c", n);
-							break;
-						case 's':
-							char *str = va_arg(args, char *);
-
-							buffer = str;
-							break;
-					}
-					count += write(STDOUT_FILENO, buffer, strlen(buffer));
-					i += 2;
-
-				}
+					count += select_function(format[i + 1], args);
+				i += 2;
 			}
-			else
-			{
-				count += write(STDOUT_FILENO, &format[i], 1);
-				i++;
-			}
+			count += write(STDOUT_FILENO, &format[i], 1);
+			i++;
 		}
 		va_end(args);
 		return (count);
