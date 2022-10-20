@@ -6,7 +6,7 @@
 #include <stdarg.h>
 #include <limits.h>
 #include <string.h>
-int select_function(char c);
+int select_function(char c, va_list args);
 int _printf(const char *format, ...);
 int print_c(va_list args);
 int print_s(va_list args);
