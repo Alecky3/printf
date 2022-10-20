@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 		va_start(args, format);
 		i = 0;
 		if (format[0] == '%' && format[1] == '\0')
-			return (-1);
+			return (0);
 		while (format != NULL && format[i] != '\0')
 		{
 			if (format[i] == '%')
@@ -26,14 +26,14 @@ int _printf(const char *format, ...)
 				if (format[i + 1] == '%')
 				{
 					count += write(STDOUT_FILENO, &format[i + 1], 1);
-					count += 2;
+					i += 2;
 				}
 				else
 				{
 					chars_count = select_function(format[i + 1], args);
 					count += chars_count;
+					i += 2;
 				}
-				i++;
 			}
 			count += write(STDOUT_FILENO, &format[i], 1);
 			i++;
@@ -41,5 +41,5 @@ int _printf(const char *format, ...)
 		va_end(args);
 		return (count);
 	}
-	return (-1);
+	return (0);
 }
