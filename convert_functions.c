@@ -67,10 +67,46 @@ int print_d(va_list args)
 /**
  * print_i - prints integer in base 10
  * @args: integer argument
- * Return: the decimal functtion
+ * Return: the decimal function
  */
 
 int print_i(va_list args)
 {
 	return (print_d(args));
 }
+/**
+ * print_u - prints unsigned integer
+ * @args: the integer to print
+ * Return: number of characters writen to stsout
+ */
+int print_u(va_list args)
+{
+	unsigned int absolute, aux, countnum, count;
+	int n;
+
+	count = 0;
+	n = va_arg(args, int);
+		if (n < 0)
+		{
+			absolute = (n * -1);
+		}
+		else
+			absolute = n;
+
+	aux = absolute;
+	countnum = 1;
+	while (aux > 9)
+	{
+		aux /= 10;
+		countnum *= 10;
+	}
+	while (countnum >= 1)
+	{
+		char c = ((absolute / countnum) % 10) + '0';
+
+		count += write(STDOUT_FILENO, &c, 1);
+		countnum /= 10;
+	}
+	return (count);
+}
+
