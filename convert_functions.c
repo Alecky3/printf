@@ -24,7 +24,7 @@ int print_s(va_list args)
 	char *str;
 
 	str = va_arg(args, char*);
-	count = write(STDOUT_FILENO, str, strlen(str) + 1);
+	count = write(STDOUT_FILENO, str, strlen(str));
 	return (count);
 }
 /**
@@ -82,16 +82,11 @@ int print_i(va_list args)
 int print_u(va_list args)
 {
 	unsigned int absolute, aux, countnum, count;
-	int n;
+	unsigned int n;
 
 	count = 0;
-	n = va_arg(args, int);
-		if (n < 0)
-		{
-			absolute = (n * -1);
-		}
-		else
-			absolute = n;
+	n = va_arg(args, unsigned int);
+	absolute = n;
 
 	aux = absolute;
 	countnum = 1;
