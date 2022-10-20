@@ -19,6 +19,8 @@ int select_function(char c, va_list args)
 			return (print_s(args));
 		case 'i':
 			return (print_i(args));
+		case 'u':
+			return (print_u(args));
 		default:
 			return (0);
 	}
